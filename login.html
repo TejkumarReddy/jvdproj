@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png">
+    <title>JNTUACEK academic fees</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="homestyle.css">
+    <script>
+        window.onload = function() {
+    // Function to get query parameters from URL
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // Get the error message from URL and display it
+    var errorMessage = getParameterByName('error_message');
+    if (errorMessage) {
+        var errorElement = document.getElementById('error');
+        errorElement.innerText = errorMessage;
+        errorElement.style.color = 'white';
+        errorElement.style.fontSize = '20px';
+        errorElement.style.backgroundColor = 'rgba(255, 0, 0, 0.800)';
+        errorElement.style.margin = '10px';
+        errorElement.style.padding = '0.1em 1em 0.1em 1em';
+        errorElement.style.height = '20px'; // Adjust the height as needed
+        errorElement.style.width = '100px'; // Adjust the width as needed
+        errorElement.style.boxShadow = '0.1em 0.1em 0.2em 0.2em rgba(0, 0, 0, 1)'; // Adjust shadow values as needed
+
+        // Add transition
+        errorElement.style.transition = 'height 0.5s, opacity 0.5s';
+
+        // Set timeout to collapse the error message after 5 seconds
+        setTimeout(function() {
+            errorElement.style.height = '0';
+            errorElement.style.opacity = '0';
+            setTimeout(function() {
+                errorElement.style.display = 'none';
+            }, 500); // Hide the element after transition
+        }, 2000); // 5 seconds timeout
+    }
+}
+
+
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-nverse">
+            <div class="container-fluid" >
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                <a class="navbar-brand" href="#"> <span id="brnd"> JNTUACEK</span> </a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-user"></span>  Student Login</a></li>
+                    <li data-toggle="modal" data-target="#myModal2"><a href="#"><span class="glyphicon glyphicon-briefcase"></span>  Admin Login</a></li>
+                  </ul>
+              </div>              
+            </div>
+          </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row">   
+            <div class="col-lg-4">
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title text-center">Student Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="student_login.php" method="post" id="mystudlogin">
+                                
+                                <div class="row form-group">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2 text-right">
+                                        <label for="admissionNumber">Admission No:</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" type="text" id="admissionNumber" name="admissionNumber" placeholder="Enter Admission No" required>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-2 text-right">
+                                        <label for="phoneNumber">Phone No :</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" id="phoneNumber" type="text" name="phoneNumber" placeholder="Enter Phone No" required>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4">
+                                        <button type="submit" class="btn btn-success btn-block">Login</button>
+
+                                        <!-- <a href="student_login.php" class="btn btn-success btn-lg btn-block">Login</a> -->
+                                        <!-- <button type="button" class="btn btn-success form-control" data-dismiss="modal">Login</button> -->
+                                    </div>
+                                    <div class="col-lg-4"></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+              <div class="modal fade" id="myModal2" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title text-center">Admin Login</h4>
+                      </div>
+                      <div class="modal-body">
+                          <form action="admin_log.php" method="post">
+                              <div class="row">
+                                  <div class="col-lg-1"></div>
+                                  <div class="col-lg-2 text-right">
+                                      <label for="username">User id:</label>
+                                  </div>
+                                  <div class="col-lg-8">
+                                      <input class="form-control" type="text" name="username" placeholder="Enter Login Id"required>
+                                  </div>
+                                  <div class="col-lg-1"></div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-lg-1"></div>
+                                  <div class="col-lg-2 text-right">
+                                      <label for="password">Password :</label>
+                                  </div>
+                                  <div class="col-lg-8">
+                                      <input class="form-control" type="password" name="password" placeholder="Enter Password" required>
+                                  </div>
+                                  <div class="col-lg-1">
+                                    
+                                  </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-4">
+                                    <button type="submit" class="btn btn-success btn-block">Login</button>
+
+                                  <!-- <a href="admin_log.php" class="btn btn-primary btn-lg btn-block mb-3">Login</a> -->
+                                    <!-- <button type="button" class="btn btn-success form-control" data-dismiss="modal">Login</button> -->
+                                </div>
+                                <div class="col-lg-4"></div>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="background">
+        <div class="row">
+            <div class="col text-center">
+                <h4 id="chagecolor"> <span id="error"> </span></h4>
+            </div>
+        </div>
+        <div class="container-fluid back">
+            <div class="col-lg-9 text">
+            <P>"Welcome to our college's convenient and secure payment portal. Easily manage tuition fees, housing expenses, and more with our user-friendly platform. Simplify your transactions, view detailed billing statements, and ensure hassle-free payments, allowing you to focus on your academic journey. Experience seamless financial interactions and reliable support, making your college experience smoother. Join us in paving the way for effortless payments and streamlined financial management."
+            </P>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

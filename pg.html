@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Payment</title>
+    <!-- Include Bootstrap CSS -->
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background: url('C:\\Users\\LENOVO\\Downloads\\img.jpeg') fixed center center;
+            background-size: cover;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value for the background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 100px; /* Adjust the top margin for better visibility */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">College Admission Payment</h1>
+
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="admissionNumber">Admission Number:</label>
+                    <input type="text" name="admissionNumber" id="admissionNumber" class="form-control" required>
+
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+
+                    <p>JVD:</p>
+                    <label for="jvdYes">Yes: </label><input type="radio" name="jvd" id="jvdYes" value="yes" required>
+                    <label for="jvdNo">No: </label><input type="radio" name="jvd" id="jvdNo" value="no" required>
+
+                    <p>Gender:</p>
+                    <label for="genderMale">Male: </label><input type="radio" name="gender" id="genderMale" value="male" required>
+                    <label for="genderFemale">Female: </label><input type="radio" name="gender" id="genderFemale" value="female" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="dateOfBirth">Date of Birth:</label>
+                    <input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="year">Year:</label>
+                    <select name="year" id="year" class="form-control" required>
+                        <option value="I">I</option>
+                        <option value="II">II</option>
+                        <option value="III">III</option>
+                        <option value="IV">IV</option>
+                    </select>
+
+                    <label for="branch">Branch:</label>
+                    <select name="branch" id="branch" class="form-control" required>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="FDT">FDT</option>
+                        <option value="MECH">MECH</option>
+                        <option value="CIVIL">CIVIL</option>
+                    </select>
+
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- Add more fields as needed -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="submit" name="submit" value="Submit" class="btn btn-primary mt-3">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

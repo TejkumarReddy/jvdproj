@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Retrieval Form</title>
+</head>
+<body>
+    <form action="admin_view.php" method="post">
+        <label for="year">Year:</label>
+        <select name="year" id="year">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="all">All</option>
+        </select>
+        
+        <label for="branch">Branch:</label>
+        <select name="branch" id="branch">
+            <option value="cse">CSE</option>
+            <option value="mech">Mech</option>
+            <option value="civil">Civil</option>
+            <option value="ece">ECE</option>
+            <option value="eee">EEE</option>
+            <option value="fdt">FDT</option>
+            <option value="all">All</option>
+        </select>
+        
+        <label for="scholarship">Scholarship:</label>
+        <select name="scholarship" id="scholarship">
+            <option value="jvd">JVD</option>
+            <option value="non-jvd">Non-JVD</option>
+            <option value="all">All</option>
+        </select>
+
+        <button type="submit">Retrieve Data</button>
+    </form>
+</body>
+</html>

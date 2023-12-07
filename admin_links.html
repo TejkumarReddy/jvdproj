@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .nav-link {
+            color: #007bff;
+            font-weight: bold;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background-image.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+        }
+        .previous-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+</style>
+    <script>
+        window.onload = function() {
+            // Function to get query parameters from URL
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            // Get the error message from URL and display it
+            var errorMessage = getParameterByName('msg');
+            if (errorMessage) {
+                document.getElementById('success').innerText = errorMessage;
+                var errorElement = document.getElementById('success');
+                errorElement.style.color = 'white';
+                errorElement.style.fontSize = '20px';
+                errorElement.style.backgroundColor = 'green';
+                errorElement.style.margin = '10px';
+                errorElement.style.padding = '0.1em 1em 0.1em 1em';
+                errorElement.style.height = '32px'; // Adjust the height as needed
+                errorElement.style.width = '100px'; // Adjust the width as needed
+                errorElement.style.boxShadow = '0.1em 0.1em 0.2em 0.2em rgba(0, 0, 0, 1)'; // Adjust shadow values as needed
+                errorElement.style.transition= 'height 0.3s linear, opacity 0.';
+                setTimeout(function() {
+                    errorElement.style.height='0';
+                    errorElement.style.opacity='0';
+                    setTimeout(function(){
+                        errorElement.style.display='none';
+                    },500)
+                },5000);
+                
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="previous-button">
+        <a href="login.html" class="btn btn-primary">Previous</a>
+    </div>
+<div class="container">
+    <div class="row" >
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 text-center" id="success">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Upload Student Details</h5>
+                    <p class="card-text">Click to upload student details.</p>
+                    <a href="file.html" class="btn btn-primary">Upload</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Student Info</h5>
+                    <p class="card-text">Get information about a specific student.</p>
+                    <a href="admin_student.php" class="btn btn-primary">Get Info</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">View Data</h5>
+                    <p class="card-text">View and manage student data.</p>
+                    <a href="excel/" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="updateCard">
+                <div class="card-body">
+                    <h5 class="card-title">Update Student Payment</h5>
+                    <p class="card-text">Update payment details of student</p>
+                    <a href="#" class="btn btn-primary" onclick="showForm()">Update</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="updateCard">
+                <div class="card-body">
+                    <h5 class="card-title">Check History</h5>
+                    <p class="card-text">Payment Details of a particular Student</p>
+                    <a href="history.php" class="btn btn-primary">Check</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="overlay" id="overlay">
+            <div class="card">
+                <div class="card-body ">
+                    <div class="div text-right">
+                        <button onclick="hideForm()" class="text-right">&times;</button>
+                    </div>
+
+                    <h2>Payment Form</h2>
+                    <form action="process_payment.php" method="post">
+                        <!-- Your form fields go here -->
+                        <label for="admission_number">Admission Number:</label>
+                        <input type="text" name="admission_number" required><br>
+        
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" required><br>
+        
+                        <label for="amount_paid">Amount Paid:</label>
+                        <input type="text" name="amount_paid" required><br>
+        
+                        <label for="utr_number">UTR Number:</label>
+                        <input type="text" name="utr_number" required><br>
+        
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function showForm() {
+                document.getElementById('overlay').style.display = 'flex';
+            }
+        
+            function hideForm() {
+                document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
+        
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies (Optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

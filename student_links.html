@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .previous-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        
+        
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .link-btn {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-btn:hover {
+            background-color: #0056b3;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .link-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="previous-button">
+        <a href="login.html" class="btn btn-primary">Previous</a>
+    </div>
+
+    <div class="container">
+        <h2>Student Portal</h2>
+        <div class="links">
+            <a href="history_student.php" class="link-btn">Check Payment History</a>
+            <a href="pay1.html" class="link-btn">Pay Fee</a>
+            <a href="student_info.php" class="link-btn">Get Details</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+

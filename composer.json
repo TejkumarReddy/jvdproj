@@ -1,0 +1,20 @@
+{
+    "name": "vendor/aotoload",
+    "description": "project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Aotoload\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tej"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.29",
+        "khanamiryan/qrcode-detector-decoder": "^2.0"
+    }
+}
